@@ -1,0 +1,6 @@
+**/config.php
+**/db_config.php
+composer.phar
+vendor/
+.vscode/
+

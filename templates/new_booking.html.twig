@@ -1,0 +1,34 @@
+{% extends "layout.html.twig" %}
+{% block content %}
+	<p>Systemet støtter inntil videre ikke reservasjoner som går over flere datoer. Dette er under utvikling.</p>
+	<p>Inntil videre må du legge inn to separate forespørsler dersom du skal ha et arrangement som varer over midnatt.</p>
+	<form action="add_booking.php" method="post" id="form">
+		<div class="label-container">
+			<label for="startdate">Tittel</label>
+			<input type="text" name="title" id="title" required>
+		</div>
+		<div class="label-container">
+			<label for="description">Beskrivelse (valgfritt)</label>
+			<textarea name="description" rows="4" id="description"></textarea>
+		</div>
+		<div class="label-container">
+			<label for="date">Dato</label>
+			<input type="text" name="date" id="date" required>
+		</div>
+		<div class="label-container">
+			<label for="startdate">Tidsrom (på formatet TT:MM)</label>
+			<div class="timerange">
+				<span>Fra</span>
+				<input type="time" name="starttime" id="starttime" placeholder="tt:mm" required>
+				<span>til</span>
+				<input type="time" name="endtime" id="endtime" placeholder="tt:mm" required>
+				<span>.</span>
+				<div class="error" id="error" style="display: none; color: red;">Starttiden må være tidligere enn sluttiden</div>
+			</div>
+		</div>
+		<input type="submit" id="submit" value="Send forespørsel" class="btn btn__primary" disabled>
+	</form>
+
+	<script src="./js/datepicker.min.js"></script>
+	<script src="./js/newbooking.js"></script>
+{% endblock %}

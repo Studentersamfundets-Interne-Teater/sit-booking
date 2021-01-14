@@ -1,0 +1,78 @@
+{% extends "layout.html.twig" %}
+{% block content %}
+{% if not pendingBookings %}
+<h2>Det er ingen forespurte bookinger 🍺</h2>
+<p>Ta deg en øl istedet. </p>
+{% else %}
+<h2>Forespurte bookinger</h2>
+{% for booking in pendingBookings %}
+<div class="booking">
+  <div class="booking-header">
+    <h2>{{ booking.title }}</h2>
+    {% if booking.status == 'pending' %}
+      <div class="booking-status booking-status__pending">Forespurt</div>
+    {% elseif booking.status == 'approved' %}
+      <div class="booking-status booking-status__approved">Godkjent</div>
+    {% elseif booking.status == 'rejected' %}
+      <div class="booking-status booking-status__rejected">Avvist</div>
+    {% endif %}
+  </div>
+  <span class="booking-date">{{ booking.date }}</span>,
+  <span class="timespan">{{ booking.prettyStartTime }}&ndash;{{ booking.prettyEndTime }}</span>
+  <p>{{ booking.description }}</p>
+  <div class="booking-buttons">
+    <a href="/admin/response.php?id={{ booking.id }}&decision=approved" class="btn btn__confirm">Godkjenn</a>
+    <a href="/admin/response.php?id={{ booking.id }}&decision=rejected" class="btn btn__danger" id="delete-booking" data-clicked="false">Avvis</a>
+  </div>
+</div>
+{% endfor %}
+{% endif %}
+{% if rejectedBookings %}
+<hr>
+<h2>Avslåtte bookinger</h2>
+{% for booking in rejectedBookings %}
+<div class="booking">
+  <div class="booking-header">
+    <h2>{{ booking.title }}</h2>
+    {% if booking.status == 'pending' %}
+      <div class="booking-status booking-status__pending">Forespurt</div>
+    {% elseif booking.status == 'approved' %}
+      <div class="booking-status booking-status__approved">Godkjent</div>
+    {% elseif booking.status == 'rejected' %}
+      <div class="booking-status booking-status__rejected">Avvist</div>
+    {% endif %}
+  </div>
+  <span class="booking-date">{{ booking.date }}</span>,
+  <span class="timespan">{{ booking.prettyStartTime }}&ndash;{{ booking.prettyEndTime }}</span>
+  <p>{{ booking.description }}</p>
+  <div class="booking-buttons">
+    <a href="/admin/response.php?id={{ booking.id }}&decision=approved" class="btn btn__confirm">Godkjenn likevel</a>
+  </div>
+</div>
+{% endfor %}
+{% endif %}
+{% if approvedBookings %}
+<hr>
+<h2>Godkjente bookinger</h2>
+{% for booking in approvedBookings %}
+<div class="booking">
+  <div class="booking-header">
+    <h2>{{ booking.title }}</h2>
+    {% if booking.status == 'pending' %}
+      <div class="booking-status booking-status__pending">Forespurt</div>
+    {% elseif booking.status == 'approved' %}
+      <div class="booking-status booking-status__approved">Godkjent</div>
+    {% elseif booking.status == 'rejected' %}
+      <div class="booking-status booking-status__rejected">Avvist</div>
+    {% endif %}
+  </div>
+  <span class="booking-date">{{ booking.date }}</span>,
+  <span class="timespan">{{ booking.prettyStartTime }}&ndash;{{ booking.prettyEndTime }}</span>
+  <p>{{ booking.description }}</p>
+  <div class="booking-buttons">
+    <a href="/admin/response.php?id={{ booking.id }}&decision=rejected" class="btn btn__danger" id="delete-booking" data-clicked="false">Avvis</a>
+  </div>
+</div>
+{% endfor %}
+{% endif %}
+{% endblock %}

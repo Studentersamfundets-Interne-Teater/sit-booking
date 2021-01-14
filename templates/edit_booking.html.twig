@@ -1,0 +1,33 @@
+{% extends "layout.html.twig" %}
+{% block content %}
+	<form action="update_booking.php" method="post" id="form">
+		<input type="text" style="display: none" name="id" id="id" value={{booking.id}}>
+		<div class="label-container">
+			<label for="startdate">Tittel</label>
+			<input type="text" name="title" id="title" value="{{ booking.title }}" required>
+		</div>
+		<div class="label-container">
+			<label for="description">Beskrivelse (valgfritt)</label>
+			<textarea name="description" rows="4" id="description">{{ booking.description }}</textarea>
+		</div>
+		<div class="label-container">
+			<label for="date">Dato</label>
+			<input type="text" name="date" id="date" required>
+		</div>
+		<div class="label-container">
+			<label for="startdate">Tidsrom</label>
+			<div class="timerange">
+				<span>Fra</span>
+				<input type="time" name="starttime" id="starttime" required>
+				<span>til</span>
+				<input type="time" name="endtime" id="endtime" required>
+				<span>.</span>
+				<div class="error" id="error" style="display: none; color: red;">Starttiden må være tidligere enn sluttiden</div>
+			</div>
+		</div>
+		<input type="submit" id="submit" value="Oppdater forespørsel" class="btn btn__primary" disabled>
+	</form>
+
+	<script src="./js/datepicker.min.js"></script>
+	<script src="./js/newbooking.js"></script>
+{% endblock %}

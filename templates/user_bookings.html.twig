@@ -1,0 +1,28 @@
+{% extends "layout.html.twig" %}
+{% block content %}
+	{% if not bookings %}
+		<p>Du har ingen bookinger.</p>
+	{% endif %}
+	{% for booking in bookings %}
+		<div class="booking">
+			<div class="booking-header">
+				<h2>{{ booking.title }}</h2>
+				{% if booking.status == 'pending' %}
+					<div class="booking-status booking-status__pending">Forespurt</div>
+				{% elseif booking.status == 'approved' %}
+					<div class="booking-status booking-status__approved">Godkjent</div>
+				{% elseif booking.status == 'rejected' %}
+					<div class="booking-status booking-status__rejected">Avvist</div>
+				{% endif %}
+			</div>
+			<span class="booking-date">{{ booking.date }}</span>,
+			<span class="timespan">{{ booking.prettyStartTime }}&ndash;{{ booking.prettyEndTime }}</span>
+			<p>{{ booking.description }}</p>
+			<div class="booking-buttons">
+				<a href="/editbooking.php?id={{ booking.id }}" class="btn btn__secondary">Endre</a>
+				<a href="/deletebooking.php?id={{ booking.id }}" class="btn btn__danger" id="delete-booking" data-clicked="false">Slett</a>
+			</div>
+		</div>
+	{% endfor %}
+	<script src="./js/deletebookingbtn.js"></script>
+{% endblock %}

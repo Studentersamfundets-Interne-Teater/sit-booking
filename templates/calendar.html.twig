@@ -1,0 +1,303 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+	<form class="date-selector" action="" method="get">
+		<select name="week" id="week">
+			{% for week in weeks %}
+				<option value="{{week.value}}" {% if week.selected %} selected {% endif %}>{{week.description}}</option>
+			{% endfor %}
+		</select>
+		<input text id="year" name="year" value={{ year }}>
+		<input type="submit" class="btn" value="Oppdater">
+	</form>
+
+</div></div><div class="calendar-container">
+<div class="calendar" id="calendar" data-events='{{ events|json_encode }}' data-current-week={{ currentWeek|json_encode }}>
+	<div class="calendar__header">
+		<h2 class="calendar__month">{{ monthLabel }}</h2>
+		<div class="calendar__navigation-buttons">
+			<a href="/{{ prevWeekQuery }}" class="btn btn__secondary">
+				<svg width="24" height="13" viewbox="0 0 24 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M23 7.5C23.5523 7.5 24 7.05228 24 6.5C24 5.94772 23.5523 5.5 23 5.5V7.5ZM2 6.5L1.30195 5.78395L0.567441 6.5L1.30195 7.21605L2 6.5ZM6.94374 12.716C7.3392 13.1016 7.97231 13.0935 8.35784 12.6981C8.74336 12.3026 8.7353 11.6695 8.33984 11.284L6.94374 12.716ZM8.33984 1.71605C8.7353 1.33052 8.74336 0.697411 8.35784 0.301949C7.97231 -0.0935136 7.3392 -0.101571 6.94374 0.283953L8.33984 1.71605ZM23 5.5L2 5.5V7.5L23 7.5V5.5ZM1.30195 7.21605L6.94374 12.716L8.33984 11.284L2.69805 5.78395L1.30195 7.21605ZM2.69805 7.21605L8.33984 1.71605L6.94374 0.283953L1.30195 5.78395L2.69805 7.21605Z" fill="black"/>
+				</svg>
+
+			</a>
+			<a href="/" class="btn btn__secondary today">I dag</a>
+			<a href="/{{ nextWeekQuery }}" class="btn btn__secondary">
+				<svg width="24" height="13" viewbox="0 0 24 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M1 5.5C0.447715 5.5 0 5.94772 0 6.5C0 7.05228 0.447715 7.5 1 7.5V5.5ZM22 6.5L22.6981 7.21605L23.4326 6.5L22.6981 5.78395L22 6.5ZM17.0563 0.283953C16.6608 -0.101571 16.0277 -0.0935137 15.6422 0.301948C15.2566 0.697411 15.2647 1.33052 15.6602 1.71605L17.0563 0.283953ZM15.6602 11.284C15.2647 11.6695 15.2566 12.3026 15.6422 12.6981C16.0277 13.0935 16.6608 13.1016 17.0563 12.716L15.6602 11.284ZM1 7.5H22V5.5H1V7.5ZM22.6981 5.78395L17.0563 0.283953L15.6602 1.71605L21.3019 7.21605L22.6981 5.78395ZM21.3019 5.78395L15.6602 11.284L17.0563 12.716L22.6981 7.21605L21.3019 5.78395Z" fill="black"/>
+				</svg>
+			</a>
+		</div>
+	</div>
+	<div class="calendar__content">
+		<div class="calendar__labels">
+			<div class="calendar__label"></div>
+			<div class="calendar__label">0.00</div>
+			<div class="calendar__label">1.00</div>
+			<div class="calendar__label">2.00</div>
+			<div class="calendar__label">3.00</div>
+			<div class="calendar__label">4.00</div>
+			<div class="calendar__label">5.00</div>
+			<div class="calendar__label">6.00</div>
+			<div class="calendar__label">7.00</div>
+			<div class="calendar__label">8.00</div>
+			<div class="calendar__label">9.00</div>
+			<div class="calendar__label">10.00</div>
+			<div class="calendar__label">11.00</div>
+			<div class="calendar__label">12.00</div>
+			<div class="calendar__label">13.00</div>
+			<div class="calendar__label">14.00</div>
+			<div class="calendar__label">15.00</div>
+			<div class="calendar__label">16.00</div>
+			<div class="calendar__label">17.00</div>
+			<div class="calendar__label">18.00</div>
+			<div class="calendar__label">19.00</div>
+			<div class="calendar__label">20.00</div>
+			<div class="calendar__label">21.00</div>
+			<div class="calendar__label">22.00</div>
+			<div class="calendar__label">23.00</div>
+		</div>
+		<div class="calendar__column" id="mon-col">
+			<div class="full-date">
+				<div class="weekday" id="mon">
+					Man
+				</div>
+				<div class="day-in-month">{{ dayLabels.mon }}.</div>
+			</div>
+			<div class="hours-column">
+				<div class="hour hour0"></div>
+				<div class="hour hour1"></div>
+				<div class="hour hour2"></div>
+				<div class="hour hour3"></div>
+				<div class="hour hour4"></div>
+				<div class="hour hour5"></div>
+				<div class="hour hour6"></div>
+				<div class="hour hour7"></div>
+				<div class="hour hour8"></div>
+				<div class="hour hour9"></div>
+				<div class="hour hour10"></div>
+				<div class="hour hour11"></div>
+				<div class="hour hour12"></div>
+				<div class="hour hour13"></div>
+				<div class="hour hour14"></div>
+				<div class="hour hour15"></div>
+				<div class="hour hour16"></div>
+				<div class="hour hour17"></div>
+				<div class="hour hour18"></div>
+				<div class="hour hour19"></div>
+				<div class="hour hour20"></div>
+				<div class="hour hour21"></div>
+				<div class="hour hour22"></div>
+				<div class="hour hour23"></div>
+			</div>
+		</div>
+		<div class="calendar__column" id="tue-col">
+			<div class="full-date">
+				<div class="weekday" id="tue">
+					Tir
+				</div>
+				<div class="day-in-month">{{ dayLabels.tue }}.</div>
+			</div>
+			<div class="hours-column">
+				<div class="hour hour0"></div>
+				<div class="hour hour1"></div>
+				<div class="hour hour2"></div>
+				<div class="hour hour3"></div>
+				<div class="hour hour4"></div>
+				<div class="hour hour5"></div>
+				<div class="hour hour6"></div>
+				<div class="hour hour7"></div>
+				<div class="hour hour8"></div>
+				<div class="hour hour9"></div>
+				<div class="hour hour10"></div>
+				<div class="hour hour11"></div>
+				<div class="hour hour12"></div>
+				<div class="hour hour13"></div>
+				<div class="hour hour14"></div>
+				<div class="hour hour15"></div>
+				<div class="hour hour16"></div>
+				<div class="hour hour17"></div>
+				<div class="hour hour18"></div>
+				<div class="hour hour19"></div>
+				<div class="hour hour20"></div>
+				<div class="hour hour21"></div>
+				<div class="hour hour22"></div>
+				<div class="hour hour23"></div>
+			</div>
+		</div>
+		<div class="calendar__column" id="wed-col">
+			<div class="full-date">
+				<div class="weekday" id="wed">
+					Ons
+				</div>
+				<div class="day-in-month">{{ dayLabels.wed }}.</div>
+			</div>
+			<div class="hours-column">
+				<div class="hour hour0"></div>
+				<div class="hour hour1"></div>
+				<div class="hour hour2"></div>
+				<div class="hour hour3"></div>
+				<div class="hour hour4"></div>
+				<div class="hour hour5"></div>
+				<div class="hour hour6"></div>
+				<div class="hour hour7"></div>
+				<div class="hour hour8"></div>
+				<div class="hour hour9"></div>
+				<div class="hour hour10"></div>
+				<div class="hour hour11"></div>
+				<div class="hour hour12"></div>
+				<div class="hour hour13"></div>
+				<div class="hour hour14"></div>
+				<div class="hour hour15"></div>
+				<div class="hour hour16"></div>
+				<div class="hour hour17"></div>
+				<div class="hour hour18"></div>
+				<div class="hour hour19"></div>
+				<div class="hour hour20"></div>
+				<div class="hour hour21"></div>
+				<div class="hour hour22"></div>
+				<div class="hour hour23"></div>
+			</div>
+		</div>
+		<div class="calendar__column" id="thu-col">
+			<div class="full-date">
+				<div class="weekday" id="thu">
+					Tor
+				</div>
+				<div class="day-in-month">{{ dayLabels.thu }}.</div>
+			</div>
+			<div class="hours-column">
+				<div class="hour hour0"></div>
+				<div class="hour hour1"></div>
+				<div class="hour hour2"></div>
+				<div class="hour hour3"></div>
+				<div class="hour hour4"></div>
+				<div class="hour hour5"></div>
+				<div class="hour hour6"></div>
+				<div class="hour hour7"></div>
+				<div class="hour hour8"></div>
+				<div class="hour hour9"></div>
+				<div class="hour hour10"></div>
+				<div class="hour hour11"></div>
+				<div class="hour hour12"></div>
+				<div class="hour hour13"></div>
+				<div class="hour hour14"></div>
+				<div class="hour hour15"></div>
+				<div class="hour hour16"></div>
+				<div class="hour hour17"></div>
+				<div class="hour hour18"></div>
+				<div class="hour hour19"></div>
+				<div class="hour hour20"></div>
+				<div class="hour hour21"></div>
+				<div class="hour hour22"></div>
+				<div class="hour hour23"></div>
+			</div>
+		</div>
+		<div class="calendar__column" id="fri-col">
+			<div class="full-date">
+				<div class="weekday" id="fri">
+					Fre
+				</div>
+				<div class="day-in-month">{{ dayLabels.fri }}.</div>
+			</div>
+			<div class="hours-column">
+				<div class="hour hour0"></div>
+				<div class="hour hour1"></div>
+				<div class="hour hour2"></div>
+				<div class="hour hour3"></div>
+				<div class="hour hour4"></div>
+				<div class="hour hour5"></div>
+				<div class="hour hour6"></div>
+				<div class="hour hour7"></div>
+				<div class="hour hour8"></div>
+				<div class="hour hour9"></div>
+				<div class="hour hour10"></div>
+				<div class="hour hour11"></div>
+				<div class="hour hour12"></div>
+				<div class="hour hour13"></div>
+				<div class="hour hour14"></div>
+				<div class="hour hour15"></div>
+				<div class="hour hour16"></div>
+				<div class="hour hour17"></div>
+				<div class="hour hour18"></div>
+				<div class="hour hour19"></div>
+				<div class="hour hour20"></div>
+				<div class="hour hour21"></div>
+				<div class="hour hour22"></div>
+				<div class="hour hour23"></div>
+			</div>
+		</div>
+		<div class="calendar__column" id="sat-col">
+			<div class="full-date">
+				<div class="weekday" id="sat">
+					Lør
+				</div>
+				<div class="day-in-month">{{ dayLabels.sat }}.</div>
+			</div>
+			<div class="hours-column">
+				<div class="hour hour0"></div>
+				<div class="hour hour1"></div>
+				<div class="hour hour2"></div>
+				<div class="hour hour3"></div>
+				<div class="hour hour4"></div>
+				<div class="hour hour5"></div>
+				<div class="hour hour6"></div>
+				<div class="hour hour7"></div>
+				<div class="hour hour8"></div>
+				<div class="hour hour9"></div>
+				<div class="hour hour10"></div>
+				<div class="hour hour11"></div>
+				<div class="hour hour12"></div>
+				<div class="hour hour13"></div>
+				<div class="hour hour14"></div>
+				<div class="hour hour15"></div>
+				<div class="hour hour16"></div>
+				<div class="hour hour17"></div>
+				<div class="hour hour18"></div>
+				<div class="hour hour19"></div>
+				<div class="hour hour20"></div>
+				<div class="hour hour21"></div>
+				<div class="hour hour22"></div>
+				<div class="hour hour23"></div>
+			</div>
+		</div>
+		<div class="calendar__column" id="sun-col">
+			<div class="full-date">
+				<div class="weekday" id="sun">
+					Søn
+				</div>
+				<div class="day-in-month">{{ dayLabels.sun }}.</div>
+			</div>
+			<div class="hours-column">
+				<div class="hour hour0"></div>
+				<div class="hour hour1"></div>
+				<div class="hour hour2"></div>
+				<div class="hour hour3"></div>
+				<div class="hour hour4"></div>
+				<div class="hour hour5"></div>
+				<div class="hour hour6"></div>
+				<div class="hour hour7"></div>
+				<div class="hour hour8"></div>
+				<div class="hour hour9"></div>
+				<div class="hour hour10"></div>
+				<div class="hour hour11"></div>
+				<div class="hour hour12"></div>
+				<div class="hour hour13"></div>
+				<div class="hour hour14"></div>
+				<div class="hour hour15"></div>
+				<div class="hour hour16"></div>
+				<div class="hour hour17"></div>
+				<div class="hour hour18"></div>
+				<div class="hour hour19"></div>
+				<div class="hour hour20"></div>
+				<div class="hour hour21"></div>
+				<div class="hour hour22"></div>
+				<div class="hour hour23"></div>
+			</div>
+		</div>
+	</div>
+</div>{% endblock %}
+{% block scripts %}
+<script src="js/calendar.js"></script>
+{% endblock %}

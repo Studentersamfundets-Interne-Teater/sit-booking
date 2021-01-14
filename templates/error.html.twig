@@ -1,0 +1,14 @@
+{% extends "layout.html.twig" %}
+{% block content %}
+		<h1>Uffda.</h1>
+		<p>Her gikk noe galt. Det er mest sannsynlig Erik sin feil.</p>
+		<p>Om du sender en
+			<a href="mailto:erik.a.jakobsen@gmail.com">e-post</a>
+			hvor du forklarer hvordan feilen oppstod, skal vi forsøke å fikse det.
+		</p>
+		{% if message %}
+			<p>Feilmelding:
+				{{ message }}</p>
+		{% endif %}
+		<p>Vi tar selvkritikk.</p>
+{% endblock %}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="no-nb">
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<link rel="stylesheet" href="https://use.typekit.net/mss7ais.css"/>
+		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/datepicker.min.css">
+		<title>SIT Booking</title>
+	</head>
+	<body>
+		<div class="container">
+			<button class="help" id="help">
+				Hjelp
+			</button>
+			<div class="header">
+				<a href="/" class="home-link"><h1>SIT Booking</h1></a>
+				<svg class="sit-katt" data-name="sit-katt" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 60 80.2">
+					<defs>
+						<style>
+							.cls-1 {
+								fill: #ec2227;
+							}
+						</style>
+					</defs>
+					<path id="path20" class="cls-1" d="M41.88,35.05c-.34-14.62-5.71-23.85-5.71-23.85C26.92-4.5,16.25.9,16.25.9,5.9,3.46-.32,24.67,0,39.17A103.52,103.52,0,0,0,7.77,63.34c1.23,2.84,4.31,16,6.1,16.52s3.66.58,4.91-.81-1.25-2.88-1.25-2.88a4.76,4.76,0,0,1-2.5-3,54.19,54.19,0,0,1-1.47-8c-.92-8.4,2.61-32.73,6.9-33.88.36-.1,6.75-2.46,8.73,8.66.49,2.69,1.27,22.83,1.54,27.43a48.14,48.14,0,0,1-.41,9,7.31,7.31,0,0,0,0,2.42c1.71,2.7,7.07,1,5.28-1.31-2.55-3.24-.93-12.81-.5-14.13.69-2.12,2-6.68,3.39-10.22"/>
+					<path id="path22" class="cls-1" d="M38.42,46.2a12.38,12.38,0,0,0,.19,8.51,29.56,29.56,0,0,0,1.73,5.09c1.54,3.22,5.36.54,6.65,0,4.31-2,4.39-2.11,5.81-3.11.75-.53,1.52-3.15,2.1-4.55L60,45.53c-.41-1.32-4.72.32-5.25-.51-2-4.15-7.21-3.8-7.69-4.74L45,35.06a.33.33,0,0,0-.24,0,2.22,2.22,0,0,0-1.19.85c-.34.55-2.44,4.84-2.4,5.41,0,.29-1.83,2.47-2.76,4.92"/>
+				</svg>
+				<div class="info" id="info">
+					<h3>Hvordan booker jeg hybelen?</h3>
+					<p>
+						Trykk på «Ny booking» for å opprette en ny bookingforespørsel. Alle
+																														            bookinger må godkjennes av et styremedlem eller hybelassistent.
+					</p>
+					<h3>Hvordan endrer eller sletter jeg en booking jeg har lagt inn?</h3>
+					<p>
+						Trykk på «Mine bookinger», finn bookingen du ønsker å endre, og
+																														            trykk på den tilsvarende knappen.
+						<span class="highlight">Om en booking endres så må den godkjennes på nytt</span>.
+					</p>
+					<h3>Hva betyr fargene i kalenderen?</h3>
+					<p>
+						<span class="confirmed">Grønne&nbsp;bookinger</span>
+						godkjent,
+						<span class="requested">gule&nbsp;bookinger</span>
+						er enda ikke
+																														            besvart.
+					</p>
+					<h3>Hvordan finner jeg ut hvem som har booket hybelen?</h3>
+					<p>
+						Trykk på en booking i kalenderen for mer informasjon og kontaktinfo
+																														            til den ansvarlige.
+					</p>
+					<h3>Dette virker ikke!</h3>
+					<p>
+						Ta kontakt på <a href="mailto:erik.a.jakobsen@gmail.com">e-post</a> om verktøyet ikke virker som det skal.
+					</p>
+					<h3>Kan jeg få se koden?</h3>
+					<p>Klart det, den ligger på <a href="https://github.com/Studentersamfundets-Interne-Teater/sit-booking">GitHub</a>.</p>
+				</div>
+			</div>
+			<div class="booking-buttons">
+			<a href="/newbooking.php" class="btn btn__primary">Ny booking</a>
+			<a href="/" class="btn btn__secondary">Hybelkalender</a>
+			<a href="/bookings.php" class="btn btn__secondary">Mine bookinger</a>
+			<a href="/profile.php" class="btn btn__secondary">Min profil</a>
+		</div>
+		{% block content %}{% endblock %}
+		</div>
+		<script src="js/helpbtn.js"></script>
+		{% block scripts %}{% endblock %}
+	</body>
+</html>

@@ -1,0 +1,29 @@
+{% extends "layout.html.twig" %}
+{% block content %}
+		<div class="booking">
+			<div class="booking-header">
+				<h2>{{ booking.title }}</h2>
+				{% if booking.status == 'pending' %}
+					<div class="booking-status booking-status__pending">Forespurt</div>
+				{% elseif booking.status == 'approved' %}
+					<div class="booking-status booking-status__approved">Godkjent</div>
+				{% elseif booking.status == 'rejected' %}
+					<div class="booking-status booking-status__rejected">Avvist</div>
+				{% endif %}
+			</div>
+			<span class="booking-date">{{ booking.date }}</span>,
+			<span class="timespan">{{ booking.prettyStartTime }}&ndash;{{ booking.prettyEndTime }}</span>
+			<p>Booket av
+				{{ booker.fullname }}, tlf
+				{{ booker.phone }}.</p>
+			{% if booking.description %}<hr>
+			{% endif %}
+			<p>{{ booking.description }}</p>
+			{% if booking.username == currentUser %}
+				<div class="booking-buttons">
+					<a href="/editbooking.php?id={{ booking.id }}" class="btn btn__secondary">Endre</a>
+					<a href="/deletebooking.php?id={{ booking.id }}" class="btn btn__danger" id="delete-booking" data-clicked="false">Slett</a>
+				</div>
+			{% endif %}
+		</div>
+{% endblock %}

@@ -1,0 +1,6 @@
+AuthType Kerberos
+KrbAuthRealms AD.SAMFUNDET.NO
+Krb5Keytab /etc/apache2/krb5/sitbooking.keytab
+KrbServiceName Any
+AuthName "Samfundetbruker"
+require itkacl /web/sitbookingadmin

@@ -1,0 +1,30 @@
+{% extends "layout.html.twig" %}
+{% block content %}
+	<form action="update_user.php" method="post">
+		<div class="label-container">
+			<label for="fullname">Fullt navn</label>
+			<input type="text" name="fullname" id="fullname" value="{{ user.fullname }}" required>
+		</div>
+		<div class="label-container">
+			<label for="phone">Telefonnummer</label>
+			<input type="tel" name="phone" id="phone" pattern="\d{8}" title="8 siffer uten mellomrom" value="{{ user.phone }}" required>
+		</div>
+		<div class="label-container">
+			<label for="email">E-post</label>
+			<input type="email" name="email" id="email" value="{{ user.email }}" required>
+		</div>
+		<input type="submit" value="Oppdater bruker" class="btn btn__primary">
+	</form>
+	<h2>Faresone</h2>
+	<p>Om du sletter brukeren din fjernes all informasjon om deg permanent fra siden.<br>Dette inkluderer alle dine bookinger.</p>
+	<a href="#" class="btn btn__danger" id="delete-btn">Slett bruker</a>
+	<div class="delete-confirmation" id="delete-confirmation">
+		<h3>Er du sikker?</h3>
+		<div class="delete-buttons">
+			<a href="deleteuser.php" class="btn btn__danger">Ja, slett brukeren</a>
+			<a href="#" class="btn btn__secondary" id="cancel-btn">Nei, avbryt</a>
+		</div>
+	</div>
+
+	<script src="./js/userprofile.js"></script>
+{% endblock %}
