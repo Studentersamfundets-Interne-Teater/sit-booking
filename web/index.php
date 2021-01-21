@@ -37,8 +37,8 @@ if (is_null(pg_fetch_array($result)[0])) {
 }
 
 // Get query parameters to pass on to calendar
-$year = is_null($_GET["year"]) ? date("Y") : intval($_GET["year"]);
-$week = is_null($_GET["week"]) ? date("W") : intval($_GET["week"]);
+$year = is_null($_GET["year"]) ? intval(date("Y")) : intval($_GET["year"]);
+$week = is_null($_GET["week"]) ? intval(date("W")) : intval($_GET["week"]);
 $weeks = getWeeksWithDatesInYear($year);
 $weeks[$week]["selected"] = true;
 $monthLabel = getMonthLabel($year, $week);
