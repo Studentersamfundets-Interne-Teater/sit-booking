@@ -18,7 +18,8 @@
     {% endif %}
   </div>
   <span class="booking-date">{{ booking.date }}</span>,
-  <span class="timespan">{{ booking.prettyStartTime }}&ndash;{{ booking.prettyEndTime }}</span>
+  <span class="timespan">{{ booking.prettyStartTime }}&ndash;{{ booking.prettyEndTime }}</span> <br />
+  <span class="user">Lagt inn av {{ booking.fullname }}, {{ booking.phone }}, <a href="mailto:{{ booking.email }}">{{ booking.email }}</a></span>
   <p>{{ booking.description }}</p>
   <div class="booking-buttons">
     <a href="/admin/response.php?id={{ booking.id }}&decision=approved" class="btn btn__confirm">Godkjenn</a>
@@ -43,7 +44,8 @@
     {% endif %}
   </div>
   <span class="booking-date">{{ booking.date }}</span>,
-  <span class="timespan">{{ booking.prettyStartTime }}&ndash;{{ booking.prettyEndTime }}</span>
+  <span class="timespan">{{ booking.prettyStartTime }}&ndash;{{ booking.prettyEndTime }}</span> <br />
+  <span class="user">Lagt inn av {{ booking.fullname }}, {{ booking.phone }}, <a href="mailto:{{ booking.email }}">{{ booking.email }}</a></span>
   <p>{{ booking.description }}</p>
   <div class="booking-buttons">
     <a href="/admin/response.php?id={{ booking.id }}&decision=approved" class="btn btn__confirm">Godkjenn likevel</a>
@@ -67,7 +69,8 @@
     {% endif %}
   </div>
   <span class="booking-date">{{ booking.date }}</span>,
-  <span class="timespan">{{ booking.prettyStartTime }}&ndash;{{ booking.prettyEndTime }}</span>
+  <span class="timespan">{{ booking.prettyStartTime }}&ndash;{{ booking.prettyEndTime }}</span> <br />
+  <span class="user">Lagt inn av {{ booking.fullname }}, {{ booking.phone }}, <a href="mailto:{{ booking.email }}">{{ booking.email }}</a></span>
   <p>{{ booking.description }}</p>
   <div class="booking-buttons">
     <a href="/admin/response.php?id={{ booking.id }}&decision=rejected" class="btn btn__danger" id="delete-booking" data-clicked="false">Avvis</a>
