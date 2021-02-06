@@ -1,26 +1,53 @@
-{% extends "layout.html.twig" %}
-
-{% block content %}
-		<h1>Velkommen!</h1>
-		<p>Før du kan bruke hybelen må du registrere deg. Informasjonen du registrerer vil bli brukt som følger:</p>
-		<ul>
-			<li>Navn og telefonnummer vil vises for alle som trykker på en booking i kalenderen.</li>
-			<li>Din e-post vil bli brukt til å gi deg beskjed når din booking blir godkjent eller avvist.</li>
-		</ul>
-		<p>Du kan når som helst endre eller slette informasjonen som er lagret om deg.</p>
-		<form action="register_user.php" method="post">
-			<div class="label-container">
-				<label for="fullname">Fullt navn</label>
-				<input type="text" name="fullname" id="fullname" required>
+<!DOCTYPE html>
+<html lang="no-nb">
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<link rel="stylesheet" href="https://use.typekit.net/mss7ais.css"/>
+		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/datepicker.min.css">
+		<title>SIT Booking</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="header">
+				<a href="/" class="home-link">
+					<h1>SIT Booking</h1>
+				</a>
+				<svg class="sit-katt" data-name="sit-katt" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 60 80.2">
+					<defs>
+						<style>
+							.cls-1 {
+								fill: #ec2227;
+							}
+						</style>
+					</defs>
+					<path id="path20" class="cls-1" d="M41.88,35.05c-.34-14.62-5.71-23.85-5.71-23.85C26.92-4.5,16.25.9,16.25.9,5.9,3.46-.32,24.67,0,39.17A103.52,103.52,0,0,0,7.77,63.34c1.23,2.84,4.31,16,6.1,16.52s3.66.58,4.91-.81-1.25-2.88-1.25-2.88a4.76,4.76,0,0,1-2.5-3,54.19,54.19,0,0,1-1.47-8c-.92-8.4,2.61-32.73,6.9-33.88.36-.1,6.75-2.46,8.73,8.66.49,2.69,1.27,22.83,1.54,27.43a48.14,48.14,0,0,1-.41,9,7.31,7.31,0,0,0,0,2.42c1.71,2.7,7.07,1,5.28-1.31-2.55-3.24-.93-12.81-.5-14.13.69-2.12,2-6.68,3.39-10.22"/>
+					<path id="path22" class="cls-1" d="M38.42,46.2a12.38,12.38,0,0,0,.19,8.51,29.56,29.56,0,0,0,1.73,5.09c1.54,3.22,5.36.54,6.65,0,4.31-2,4.39-2.11,5.81-3.11.75-.53,1.52-3.15,2.1-4.55L60,45.53c-.41-1.32-4.72.32-5.25-.51-2-4.15-7.21-3.8-7.69-4.74L45,35.06a.33.33,0,0,0-.24,0,2.22,2.22,0,0,0-1.19.85c-.34.55-2.44,4.84-2.4,5.41,0,.29-1.83,2.47-2.76,4.92"/>
+				</svg>
 			</div>
-			<div class="label-container">
-				<label for="phone">Telefonnummer</label>
-				<input type="tel" name="phone" id="phone" pattern="\d{8}" title="8 siffer uten mellomrom" required>
-			</div>
-			<div class="label-container">
-				<label for="email">E-post</label>
-				<input type="email" name="email" id="email" required>
-			</div>
-			<input type="submit" value="Registrer ny bruker" class="btn btn__primary">
-		</form>
-{% endblock %}
+			<h1>Velkommen!</h1>
+			<p>Før du kan bruke hybelen må du registrere deg. Informasjonen du registrerer vil bli brukt som følger:</p>
+			<ul>
+				<li>Navn og telefonnummer vil vises for alle som trykker på en booking i kalenderen.</li>
+				<li>Din e-post vil bli brukt til å gi deg beskjed når din booking blir godkjent eller avvist.</li>
+			</ul>
+			<p>Du kan når som helst endre eller slette informasjonen som er lagret om deg.</p>
+			<form action="register_user.php" method="post">
+				<div class="label-container">
+					<label for="fullname">Fullt navn</label>
+					<input type="text" name="fullname" id="fullname" required>
+				</div>
+				<div class="label-container">
+					<label for="phone">Telefonnummer</label>
+					<input type="tel" name="phone" id="phone" pattern="\d{8}" title="8 siffer uten mellomrom" required>
+				</div>
+				<div class="label-container">
+					<label for="email">E-post</label>
+					<input type="email" name="email" id="email" required>
+				</div>
+				<input type="submit" value="Registrer ny bruker" class="btn btn__primary">
+			</form>
+		</div>
+	</body>
+</html>
